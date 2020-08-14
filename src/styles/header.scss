@@ -1,0 +1,149 @@
+@import "utils";
+
+#header {
+  height: 90vh;
+  height: calc(100vh - 70px);
+  width: 100%;
+  position: relative;
+
+  svg {
+    height: 50%;
+  }
+
+  .header-text {
+    display: none;
+  }
+}
+
+.header-background,
+.header-jumbo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.header-background {
+  opacity: 0.3;
+  background-image: url("../images/headerbkg-w1440.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.header-jumbo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: $deep-jungle-green;
+  border-bottom: 1px solid $dark-green;
+  z-index:99;
+
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+
+    img,
+    svg {
+      height: 1.5em;
+      vertical-align: middle;
+    }
+  }
+
+  .nav-links {
+    display: none;
+
+    list-style: none;
+    margin: 0;
+    padding: 0.6em;
+
+    li {
+      display: inline;
+    }
+
+    a {
+      display: block;
+    }
+
+    :hover {
+      background-color: $action;
+      color: $dark-green;
+    }
+
+    :hover a {
+      color: $dark-green;
+    }
+  }
+
+  .nav-dropdown-toggle {
+    background: transparent;
+    border: 0;
+    fill: #fefefe;
+    float: right;
+    padding: 0.6em;
+    cursor: pointer;
+  }
+
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown-toggle:focus {
+    fill: $action;
+  }
+
+  .nav-links.show {
+    display: block;
+  }
+
+  a {
+    display: inline-block;
+    height: 100%;
+    padding: $padding;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .header-background {
+    background-image: url("../images/headerbkg-w800.jpg");
+  }
+}
+@media (max-width: 600px) {
+  .header-background {
+    background-image: url("../images/headerbkg-w600.jpg");
+  }
+}
+@media (max-width: 400px) {
+  .header-background {
+    background-image: url("../images/headerbkg-w400.jpg");
+  }
+}
+@media (min-width: 800px) {
+  nav.navbar .container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-links,
+    .nav-links.show {
+      display: flex;
+    }
+
+    .nav-dropdown-toggle {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,147 @@
+/**
+   * Icons
+   */
+/*@import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css");*/
+
+@import "../styles/utils";
+
+/**
+   * Apply Styles
+   */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $dark-green;
+  color: $white;
+
+  min-width: 260px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: var(--deep-jungle-green);
+  border-radius: 5px;
+  padding: $padding;
+  padding-top: 0;
+  margin: 2em 0;
+
+  @include insetBorder;
+  border-color: var(--deep-jungle-green);
+}
+
+main {
+  padding: $padding;
+}
+
+.avatar {
+  float: right;
+  border-radius: 50%;
+  width: 200px;
+  max-width: 45%;
+  margin: $padding;
+}
+
+.text-primary,
+a {
+  color: $primary;
+}
+
+.dropdown {
+  .dropdown-content {
+    display: none;
+  }
+
+  .dropdown-toggle {
+    cursor: pointer;
+    position: relative;
+    &:hover::after {
+      color: $action;
+    }
+  }
+
+  h2.dropdown-toggle {
+    display: block;
+  }
+
+  h2.dropdown-toggle::after {
+    content: "▾";
+    position: absolute;
+    right: 0;
+    transition: all 0.5s;
+  }
+
+  &.dropdown-show .dropdown-content {
+    display: initial;
+  }
+
+  &.dropdown-show h2.dropdown-toggle::after {
+    // content: "▴";
+    margin-top: -2px;
+    transform: rotate(180deg);
+  }
+}
+
+h2 a {
+  text-decoration: none;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  color: #555;
+  font-family: inherit;
+
+  &:focus {
+    box-shadow: 0 0 5px $action;
+    border: 1px solid $action;
+  }
+}
+
+button,
+input[type="button"],
+.button {
+  background-color: $dark-green;
+  color: $white;
+  border: 1px solid currentColor;
+  padding: $padding;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    font-weight: bold;
+    background-color: $yellow-green;
+    color: $dark-green;
+    // border: 1px solid $yellow-green;
+  }
+}
+/**
+   * Media Queries
+   */

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Fugaz+One:400|Montserrat");
+$headings-font-family: Fugaz One;
+$body-font-family: Montserrat;
+
+body {
+  font-family: $body-font-family;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 0 0 1px #111111;
+  font-family: $headings-font-family;
+  font-weight: 400;
+}
+
+h2 {
+  border-bottom: 2px solid $yellow-green;
+  display: inline-block;
+}
+
+h2 .fa,
+h2 .fab,
+h2 .fad,
+h2 .fal,
+h2 .far,
+h2 .fas {
+  color: $yellow-green;
+}

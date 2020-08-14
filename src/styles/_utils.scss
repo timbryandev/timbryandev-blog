@@ -1,0 +1,31 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+@import "colours";
+@import "fonts";
+
+@mixin insetBorder {
+    border-style: inset;
+    border-width: 1px;
+    border-left-style: inset;
+    border-left-width: 1px;
+    border-right-style: inset;
+    border-right-width: 1px;
+    border-top-style: inset;
+    border-top-width: 1px;
+  }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+hr {
+  @include insetBorder;
+  border-color: var(--deep-jungle-green);
+}

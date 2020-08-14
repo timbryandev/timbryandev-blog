@@ -1,0 +1,36 @@
+@import "./colours";
+
+#footer {
+  padding: $padding;
+  margin-top: 50px;
+  background-color: $deep-jungle-green;
+  font-size: 80%;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    section {
+      min-width: 200px;
+      flex-grow: 1;
+      flex-basis: 0;
+      text-align: center;
+      padding: 0 10px;
+
+      h2 {
+        display: inline-block;
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+}
