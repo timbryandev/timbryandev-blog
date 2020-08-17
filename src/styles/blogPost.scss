@@ -1,9 +1,15 @@
 .blog-post-nav {
   display: flex;
   justify-content: space-between;
-
+  flex-wrap: wrap;
   a {
     text-align: center;
+  }
+
+  a,
+  div {
+    min-width: 200px;
+    flex: 1 1 0;
   }
 }
 
@@ -40,4 +46,13 @@ pre {
   border: 1px solid var(--deep-jungle-green);
   padding: 1rem;
   max-height: 50vh;
+}
+
+.end-of-content {
+  font-size: 90%;
+  border: 2px dashed #0e4749;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  margin: 5rem 0;
 }

@@ -39,6 +39,16 @@ body {
 
   @include insetBorder;
   border-color: var(--deep-jungle-green);
+
+  .card-toggle {
+    display: block;
+    background: transparent;
+    color: inherit;
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    border: 0;
+  }
 }
 
 main {
@@ -46,11 +56,11 @@ main {
 }
 
 .avatar {
-  float: right;
   border-radius: 50%;
   width: 200px;
   max-width: 45%;
   margin: $padding;
+  margin-top: 0;
 }
 
 .text-primary,
@@ -142,6 +152,3 @@ input[type="button"],
     // border: 1px solid $yellow-green;
   }
 }
-/**
-   * Media Queries
-   */

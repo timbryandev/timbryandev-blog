@@ -13,7 +13,7 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Avatar = () => {
+const Avatar = ({ floatDirection = '' }) => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "avatar.jpg" }) {
@@ -25,12 +25,14 @@ const Avatar = () => {
       }
     }
   `)
+ 
 
   return (
     <Img
       fluid={data.placeholderImage.childImageSharp.fluid}
       className="avatar"
       alt="Tim and his cat Louie"
+      style={{ float: floatDirection }}
     />
   )
 }

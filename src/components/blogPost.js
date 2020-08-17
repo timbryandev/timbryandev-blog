@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ContactForm from "../components/contactForm"
 
 import "../styles/blogPost.scss"
 
@@ -21,58 +22,106 @@ const Template = ({ data, pageContext }) => {
     document.querySelector(".navbar").scrollIntoView()
   })
 
-  return (
-    <Layout>
-      <SEO title={title} />
-      <h2>{title}</h2>
-      {featuredImage ? <Img fluid={featuredImage.childImageSharp.sizes} /> : ""}
-
-      <p>
-        {updated && (
-          <small>
-            <em>
-              Updated on <strong>{updated}</strong>,<br />
-            </em>
-          </small>
+  function postHeader() {
+    return (
+      <>
+        <h2>{title}</h2>
+        {featuredImage ? (
+          <Img fluid={featuredImage.childImageSharp.sizes} />
+        ) : (
+          ""
         )}
 
-        <small>
-          <em>
-            Posted on <strong>{date}</strong>
-          </em>
-        </small>
-      </p>
+        <p>
+          {updated && (
+            <small>
+              <em>
+                Updated on <strong>{updated}</strong>,<br />
+              </em>
+            </small>
+          )}
+
+          <small>
+            <em>
+              Posted on <strong>{date}</strong>
+            </em>
+          </small>
+        </p>
+      </>
+    )
+  }
+
+  function postFooter() {
+    return (
+      <>
+        <footer>
+          <p style={{ textAlign: "center" }}>
+            If you want to keep reading, here are some more posts:
+          </p>
+          <div className="blog-post-nav">
+            {prev ? (
+              <Link className="button" to={prev.frontmatter.path}>
+                Previous{" "}
+                <span role="img" aria-label="point-left">
+                  👈{" "}
+                </span>
+                <br />
+                {prev.frontmatter.title}{" "}
+              </Link>
+            ) : (
+              <div className="spacer"></div>
+            )}{" "}
+            <Link className="button" to="/blog">
+              All Blog Posts
+              <span role="img" aria-label="point-okay">
+                👌{" "}
+              </span>
+            </Link>{" "}
+            {next ? (
+              <Link className="button" to={next.frontmatter.path}>
+                Next{" "}
+                <span role="img" aria-label="point-right">
+                  👉
+                </span>{" "}
+                <br />
+                {next.frontmatter.title}
+              </Link>
+            ) : (
+              <div className="spacer"></div>
+            )}
+          </div>
+          <br />
+          <br />
+          <br />
+          <p>Got some feedback? Let me know:</p>
+          <ContactForm />
+        </footer>
+      </>
+    )
+  }
+
+  return (
+    <Layout siteTitle={title}>
+      <SEO title={title} />
+
+      {postHeader()}
+
       <hr />
+
+      <h3>
+        <center>{title}</center>
+      </h3>
+
       <article
         className="blogpost"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      <footer className="blog-post-nav">
-        {prev && (
-          <Link className="button" to={prev.frontmatter.path}>
-            Previous{" "}
-            <span role="img" aria-label="point-left">
-              👈{" "}
-            </span>
-            {prev.frontmatter.title}{" "}
-          </Link>
-        )}{" "}
-        {/* <Link className="button" to="/blog">
-          Blog Home
-          <span role="img" aria-label="point-okay">
-            👌{" "}
-          </span>
-        </Link>{" "} */}
-        {next && (
-          <Link className="button" to={next.frontmatter.path}>
-            Next{" "}
-            <span role="img" aria-label="point-right">
-              👉
-            </span>{" "}
-            {next.frontmatter.title}
-          </Link>
-        )}
-      </footer>
+
+      <div className="end-of-content">
+        <p>End of content</p>
+      </div>
+
+      {postFooter()}
     </Layout>
   )
 }

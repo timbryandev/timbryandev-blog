@@ -38,24 +38,30 @@ const Footer = () => {
             </li>
           </ul>
         </section>
-        {/* <section className="more-reading">
-          <h2>Something</h2>
-          <p>Some more stuff will go here when i think of it!</p>
-        </section> */}
-        <section className="site-info">
-          <h2>Site Info</h2>
+
+        <section className="site-links">
+          <h2>Site Links</h2>
           <ul>
             <li>
-              <a href="/sitemap.xml">Sitemap</a>
+              <Link to="/"> Home</Link>
             </li>
             <li>
               <Link to="/#about"> About</Link>
             </li>
             <li>
-              <Link to="/"> Home</Link>
+              <Link to="/blog-posts"> Blog Posts</Link>
+            </li>
+          </ul>
+        </section>
+
+        <section className="site-info">
+          <h2>Site Meta</h2>
+          <ul>
+            <li>
+              <Link to="/sitemap.xml">Sitemap</Link>
             </li>
             <li>
-              <a href="/rss.xml"> RSS Feed</a>
+              <Link to="/rss.xml"> RSS Feed</Link>
             </li>
           </ul>
         </section>
@@ -64,7 +70,7 @@ const Footer = () => {
         <hr />
         <p>
           &copy; {new Date().getFullYear()} - Designed and developed by{" "}
-          <Link to="/">Tim&#xA0;Bryan</Link>. All right Reversed.
+          <a href="https://timbryan.dev">Tim&#xA0;Bryan</a>. All right Reversed.
         </p>
       </section>
     </footer>

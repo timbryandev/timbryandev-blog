@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-// import { withPrefix, Link } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ContactForm from "../components/contactForm"
 
 import Avatar from "../components/avatar"
 
@@ -16,65 +17,75 @@ const IndexPage = () => {
     }))
   }
 
-  const MainContent = () => {
+  function articleAbout() {
     return (
-      <>
-        <article id="about">
-          <h2>
-            <span className="fas fa-microchip" aria-hidden="true"></span> About
-            Tim
-          </h2>
+      <article id="about">
+        <h2>
+          <span className="fas fa-microchip" aria-hidden="true"></span> About
+          Tim
+        </h2>
+        <p>
+          Confident front-end web developer with experience in back-end &amp;
+          software development who also offers impartial advice on web
+          solutions. A perpetual learner with a genuine passion for technology,
+          science, learning and DIY.
+        </p>
+        <p>
+          <strong>Likes</strong>: writing code, solving puzzles, telling jokes,
+          playing bass guitar, DIY projects, and enthusing about science,
+          electronics &amp; technology.
+        </p>
+        <p>
+          <strong>Dislikes</strong>: being late, being untidy or unorganised,
+          using/developing for Internet Explorer, tab VS spaces, odd numbers.
+        </p>
+        <section>
+          <Avatar floatDirection="right" />
           <p>
-            Confident front-end web developer with experience in back-end &amp;
-            software development who also offers impartial advice on web
-            solutions. Perpetual learner with a genuine passion for technology,
-            science, learning and DIY.
-          </p>
-          <p>
-            <strong>Likes to</strong>: write code, tell jokes, play the bass
-            guitar, take on DIY projects and enthuse about science, electronics
-            &amp; technology.
-          </p>
-          <p>
-            <strong>Doesn&apos;t like to</strong>: be late, be untidy or
-            unorganised, use Internet Explorer, tab versus spaces and dislikes
-            odd numbers.
-          </p>
-          <Avatar />
-          <p>
-            From a young age, I've has had a fascination with technology and
+            "From a young age, I've has had a fascination with technology and
             can&apos;t remember a time when I wasn&apos;t tinkering with, taking
             apart or breaking things.
-            <br />I can usually be found playing around and experimenting on
-            Debian (home server), Manjaro (personal laptop) and RaspianOS (three
-            guesses what what I use that on) depending on mood and the task at
-            hand, as well as Windows 10 (work laptop) for my main development
-            tasks.
           </p>
           <p>
-            If you want to get in touch you can grab on the social medias in the
-            footer, email me on
-            <a href="mailto:hi@timbryan.dev">hi@timbryan.dev</a> or use the
-            contact form at the bottom of this page.
+            I can usually be found playing around and experimenting on Debian
+            (home server), Manjaro (personal machine) and RaspianOS (for various
+            Pi's), as well as Windows 10 (work laptop) for my main development
+            tasks."
           </p>
-        </article>
-        <article
-          id="experience"
-          className={`card dropdown ${
-            dropdownStates.experience ? "dropdown-show" : ""
-          }`}
-        >
-          <header>
-            <h2
-              className="dropdown-toggle"
-              onClick={toggleNav.bind(this, "experience")}
-              onKeyDown={toggleNav.bind(this, "experience")}
-            >
+          <div style={{ clear: "both" }}></div>
+        </section>
+        <p>
+          If you want to get in touch you can grab on the social medias listed
+          under <Link to="/#footer">"Find me online"</Link> in the footer, email
+          me on <a href="mailto:hi@timbryan.dev">hi@timbryan.dev</a> or use the
+          contact form at the bottom of this page.
+        </p>
+      </article>
+    )
+  }
+
+  function articleExperience() {
+    return (
+      <article
+        id="experience"
+        className={`card dropdown ${
+          dropdownStates.experience ? "dropdown-show" : ""
+        }`}
+      >
+        <header>
+          <button
+            className="card-toggle"
+            onClick={toggleNav.bind(this, "experience")}
+            onKeyDown={toggleNav.bind(this, "experience")}
+          >
+            <h2 className="dropdown-toggle">
               <span className="fas fa-laptop-code" aria-hidden="true"></span>
               Experience
             </h2>
-          </header>
-          <section className="dropdown-content">
+          </button>
+        </header>
+        <div className="dropdown-content">
+          <section>
             <h3>
               <a href="https://www.bpp.com" title="View BPP's website">
                 BPP
@@ -145,7 +156,7 @@ const IndexPage = () => {
               </li>
             </ul>
           </section>
-          <section className="dropdown-content">
+          <section>
             <h3>
               <a
                 href="https://www.stockport.ac.uk"
@@ -179,7 +190,7 @@ const IndexPage = () => {
               </li>
             </ul>
           </section>
-          <section className="dropdown-content">
+          <section>
             <h3>
               <span title="Site is no longer being hosted">WOTMATSAW.com</span>
             </h3>
@@ -207,24 +218,33 @@ const IndexPage = () => {
               <li>Developing ideas into working features</li>
             </ul>
           </section>
-        </article>
-        <article
-          id="projects"
-          className={`card dropdown ${
-            dropdownStates.projects ? "dropdown-show" : ""
-          }`}
-        >
-          <header>
-            <h2
-              className="dropdown-toggle"
-              onClick={toggleNav.bind(this, "projects")}
-              onKeyPress={toggleNav.bind(this, "projects")}
-            >
+        </div>
+      </article>
+    )
+  }
+
+  function articleProjects() {
+    return (
+      <article
+        id="projects"
+        className={`card dropdown ${
+          dropdownStates.projects ? "dropdown-show" : ""
+        }`}
+      >
+        <header>
+          <button
+            className="card-toggle"
+            onClick={toggleNav.bind(this, "projects")}
+            onKeyPress={toggleNav.bind(this, "projects")}
+          >
+            <h2 className="dropdown-toggle">
               <span className="fas fa-code" aria-hidden="true"></span> Projects
             </h2>
-          </header>
+          </button>
+        </header>
+        <div className="dropdown-content">
           <h3>Work Projects</h3>
-          <section className="dropdown-content">
+          <section>
             <h3>Multi-purpose home server</h3>
             <p>
               The original plan was to use a Rasberry Pi 3B+ until I fried the
@@ -248,7 +268,7 @@ const IndexPage = () => {
           </section>
 
           <h3>Personal Projects</h3>
-          <section className="dropdown-content">
+          <section>
             <h3>Multi-purpose home server</h3>
             <p>
               The original plan was to use a Rasberry Pi 3B+ until I fried the
@@ -270,7 +290,7 @@ const IndexPage = () => {
               <li>Simple home automation</li>
             </ul>
           </section>
-          <section className="dropdown-content">
+          <section>
             <h3>"PiHole"</h3>
             <p>
               The goal: network-wide ad blocking using a Raspberry Pi and{" "}
@@ -292,7 +312,7 @@ const IndexPage = () => {
               tracking data.
             </p>
           </section>
-          <section className="dropdown-content">
+          <section>
             <h3>Quizzing Buzzers</h3>
             <p>
               A friend likes to host a bi-annual quiz and for a long time, they
@@ -317,24 +337,33 @@ const IndexPage = () => {
               future quiz round.
             </p>
           </section>
-        </article>
-        <article
-          id="education"
-          className={`card dropdown ${
-            dropdownStates.education ? "dropdown-show" : ""
-          }`}
-        >
-          <header>
-            <h2
-              className="dropdown-toggle"
-              onClick={toggleNav.bind(this, "education")}
-              onKeyPress={toggleNav.bind(this, "education")}
-            >
+        </div>
+      </article>
+    )
+  }
+
+  function articleEducation() {
+    return (
+      <article
+        id="education"
+        className={`card dropdown ${
+          dropdownStates.education ? "dropdown-show" : ""
+        }`}
+      >
+        <header>
+          <button
+            className="card-toggle"
+            onClick={toggleNav.bind(this, "education")}
+            onKeyPress={toggleNav.bind(this, "education")}
+          >
+            <h2 className="dropdown-toggle">
               <span className="fas fa-university" aria-hidden="true"></span>{" "}
               Education
             </h2>
-          </header>
-          <section className="dropdown-content">
+          </button>
+        </header>
+        <div className="dropdown-content">
+          <section>
             <h3>FdSc Enterprise Computing</h3>
             <p>
               <a href="https://mmu.ac.uk" title="View MMU's website">
@@ -354,7 +383,7 @@ const IndexPage = () => {
               <li>Career Development</li>
             </ul>
           </section>
-          <section className="dropdown-content">
+          <section>
             <h3>Level 2 Retail Apprenticeship</h3>
             <p>
               <a
@@ -379,7 +408,7 @@ const IndexPage = () => {
               <li>Handling of Customer Payments in a Retail Business</li>
             </ul>
           </section>
-          <section className="dropdown-content">
+          <section>
             <h3>A-Levels</h3>
             <p>Marple Sixth Form College</p>
             <ul className="arrow">
@@ -387,71 +416,26 @@ const IndexPage = () => {
               <li>Electronics</li>
             </ul>
           </section>
-          <section className="dropdown-content">
+          <section>
             <h3>GCSEs</h3>
             <p>
               11 at A-C including Maths, English, Tripple Science, ICT, Music,
               Graphics…
             </p>
           </section>
-        </article>
-        <section id="contact" className="card">
-          <h2>
-            <span className="fas fa-at" aria-hidden="true"></span> Contact
-          </h2>
-          <p>
-            Use the form below to get in touch. Alternatively, you can send an
-            email directly to{" "}
-            <a href="mailto:hi@timbryan.dev" title="Send Tim an email">
-              hi@timbryan.dev
-            </a>
-            .
-          </p>
-          <form action="https://formspree.io/meqrploz" method="post">
-            <label htmlFor="name">
-              <span className="sr-only" role="none">
-                Name:
-              </span>
-              <input
-                id="name"
-                required
-                type="text"
-                className="name"
-                name="name"
-                placeholder="Your Name"
-              />
-            </label>
-            <label htmlFor="email">
-              <span className="sr-only" role="none">
-                Email:
-              </span>
-              <input
-                required
-                type="email"
-                className="email"
-                name="email"
-                placeholder="Email Address"
-              />
-            </label>
-            <br />
-            <label htmlFor="message">
-              <span className="sr-only" role="none">
-                Message:
-              </span>
-              <textarea
-                required
-                className="message"
-                name="message"
-                placeholder="Type your Message"
-                rows="6"
-              ></textarea>
-            </label>
-            <p className="form-status"></p>
-            <button className="submit" type="submit">
-              <i className="fas fa-paper-plane"></i> Send
-            </button>
-          </form>
-        </section>
+        </div>
+      </article>
+    )
+  }
+
+  const MainContent = () => {
+    return (
+      <>
+        {articleAbout()}
+        {articleExperience()}
+        {articleProjects()}
+        {articleEducation()}
+        <ContactForm />
       </>
     )
   }
