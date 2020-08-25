@@ -18,7 +18,10 @@ const Blog = ({ data }) => {
     <Layout>
       <SEO title="Blog" />
 
-      {/* <h2>Take a look at some of my ramblings:</h2> */}
+      <h2>
+        <span className="fas fa-rss" aria-hidden="true"></span> {""}
+        Blog Posts
+      </h2>
       <p>Take a look at some of my ramblings:</p>
       <p>(Pagination, search and filtering are on my ToDo list!)</p>
       <hr />

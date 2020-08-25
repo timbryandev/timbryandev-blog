@@ -13,7 +13,7 @@ export default class ContactForm extends React.Component {
     const { status } = this.state
 
     return (
-      <section id="contact" className="card">
+      <section id="contact">
         <h2>
           <span className="fas fa-at" aria-hidden="true"></span> Contact
         </h2>

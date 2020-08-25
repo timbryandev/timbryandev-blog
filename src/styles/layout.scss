@@ -26,19 +26,19 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
 }
 
 .card {
   background: var(--deep-jungle-green);
-  border-radius: 5px;
+  border-radius: 1px;
   padding: $padding;
   padding-top: 0;
   margin: 2em 0;
 
-  @include insetBorder;
-  border-color: var(--deep-jungle-green);
+  // @include insetBorder;
+  // border-color: var(--deep-jungle-green);
 
   .card-toggle {
     display: block;

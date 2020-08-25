@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 
 // import styleHeader from "./layout.scss"
@@ -46,10 +45,13 @@ const Footer = () => {
               <Link to="/"> Home</Link>
             </li>
             <li>
-              <Link to="/#about"> About</Link>
+              <Link to="/about"> About</Link>
             </li>
             <li>
-              <Link to="/blog-posts"> Blog Posts</Link>
+              <Link to="/#contact"> Contact</Link>
+            </li>
+            <li>
+              <Link to="/blog-posts"> Blog</Link>
             </li>
           </ul>
         </section>
@@ -75,14 +77,6 @@ const Footer = () => {
       </section>
     </footer>
   )
-}
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Footer.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Footer

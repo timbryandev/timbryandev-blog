@@ -21,6 +21,10 @@ h6 {
 h2 {
   border-bottom: 2px solid $yellow-green;
   display: inline-block;
+
+  .svg-inline--fa {
+    color: $yellow-green;
+  }
 }
 
 h2 .fa,

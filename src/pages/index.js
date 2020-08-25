@@ -24,42 +24,18 @@ const IndexPage = () => {
           <span className="fas fa-microchip" aria-hidden="true"></span> About
           Tim
         </h2>
+        <Avatar floatDirection="right" />
         <p>
-          Confident front-end web developer with experience in back-end &amp;
-          software development who also offers impartial advice on web
-          solutions. A perpetual learner with a genuine passion for technology,
-          science, learning and DIY.
+          Tim is a confident front-end web developer with experience in
+          back-end, full-stack &amp; software development solutions. A perpetual
+          learner with a genuine passion for technology, science, learning and
+          DIY.
         </p>
-        <p>
-          <strong>Likes</strong>: writing code, solving puzzles, telling jokes,
-          playing bass guitar, DIY projects, and enthusing about science,
-          electronics &amp; technology.
-        </p>
-        <p>
-          <strong>Dislikes</strong>: being late, being untidy or unorganised,
-          using/developing for Internet Explorer, tab VS spaces, odd numbers.
-        </p>
-        <section>
-          <Avatar floatDirection="right" />
-          <p>
-            "From a young age, I've has had a fascination with technology and
-            can&apos;t remember a time when I wasn&apos;t tinkering with, taking
-            apart or breaking things.
-          </p>
-          <p>
-            I can usually be found playing around and experimenting on Debian
-            (home server), Manjaro (personal machine) and RaspianOS (for various
-            Pi's), as well as Windows 10 (work laptop) for my main development
-            tasks."
-          </p>
-          <div style={{ clear: "both" }}></div>
-        </section>
-        <p>
-          If you want to get in touch you can grab on the social medias listed
-          under <Link to="/#footer">"Find me online"</Link> in the footer, email
-          me on <a href="mailto:hi@timbryan.dev">hi@timbryan.dev</a> or use the
-          contact form at the bottom of this page.
-        </p>
+        <Link to="/about" onClick={toggleNav.bind(this)}>
+          Read more about Tim
+        </Link>
+
+        <div style={{ clear: "both" }}></div>
       </article>
     )
   }
@@ -79,7 +55,7 @@ const IndexPage = () => {
             onKeyDown={toggleNav.bind(this, "experience")}
           >
             <h2 className="dropdown-toggle">
-              <span className="fas fa-laptop-code" aria-hidden="true"></span>
+              <span className="fas fa-laptop-code" aria-hidden="true"></span>{" "}
               Experience
             </h2>
           </button>

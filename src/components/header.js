@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 // import styleHeader from "./layout.scss"
 import "../styles/header.scss"
@@ -10,6 +9,9 @@ function Nav(props) {
 
   const toggleNav = () => {
     setShowNav((bShowNav = !bShowNav))
+    if (bShowNav) {
+      document.querySelector(".navbar").scrollIntoView()
+    }
   }
 
   return (
@@ -52,19 +54,25 @@ function Nav(props) {
         <ul className={`nav-links ${bShowNav ? "show" : ""}`}>
           <li>
             <Link to="/" onClick={toggleNav.bind(this)}>
-              <span className="fas fa-laptop-code" aria-hidden="true"></span>
-              Home
+              <span className="fas fa-home" aria-hidden="true"></span> Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={toggleNav.bind(this)}>
+              <span className="fas fa-id-card-alt" aria-hidden="true"></span>{" "}
+              About
             </Link>
           </li>
           <li>
             <Link to="/#contact" onClick={toggleNav.bind(this)}>
-              <span className="fas fa-laptop-code" aria-hidden="true"></span>
+              <span className="fas fa-at" aria-hidden="true"></span>{" "}
               Contact
             </Link>
           </li>
           <li>
             <Link to="/blog-posts" onClick={toggleNav.bind(this)}>
-              <span className="fas fa-code" aria-hidden="true"></span> Blog
+              <span className="fas fa-rss" aria-hidden="true"></span> {""}
+              Blog
             </Link>
           </li>
         </ul>
@@ -74,6 +82,19 @@ function Nav(props) {
 }
 
 const Header = ({ siteTitle }) => {
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://kit.fontawesome.com/5349427363.js"
+    script.async = true
+    script.crossorigin = "anonymouse"
+
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   return (
     <>
       <header id="header">
@@ -102,14 +123,6 @@ const Header = ({ siteTitle }) => {
       <Nav />
     </>
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header
